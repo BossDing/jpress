@@ -3,9 +3,8 @@
 
 
 ## 开始
-演示站点：[http://www.yangfuhai.com](http://www.yangfuhai.com) （也是作者博客）
+演示、文档、资源分享站点：[http://www.jpress.cc](jpress之家) 
 
-JPress官网：[http://jpress.io](http://jpress.io) 
 
 ### 简介
 JPress，一个wordpress的java代替版本，使用JFinal开发。支持类似wordpress的几乎所有功能，比如：模板，插件等。同时在模板上，JPress提出了“模板即模型”的概念，方便模板制作人灵活制作业务模型，移除了widget等繁杂功能，同时在模板和插件制作上比wordpress更加灵活简洁。
