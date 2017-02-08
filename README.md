@@ -3,7 +3,7 @@
 
 #Site
 JPress演示、文档教程、主题资源分享站点：[http://www.jpress.cc](JPress之家) <br>
-JPress之家交流Q群：582035381  ，码农交流Q群：84894149
+JPress之家交流Q群：582035381
 
 #Thx
 * [https://github.com/JpressProjects/jpress](https://github.com/JpressProjects/jpress)
