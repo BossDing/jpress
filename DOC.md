@@ -3,7 +3,7 @@
 
 
 ## 开始
-演示、文档、资源分享站点：[http://www.jpress.cc](jpress之家) 
+演示、文档、资源分享站点：[jpress之家](http://www.jpress.cc) 
 
 
 ### 简介
@@ -11,12 +11,6 @@ JPress，一个wordpress的java代替版本，使用JFinal开发。支持类似w
 
 但是，JPress又不是wordpress的java版本，它天生融合了微信公众平台，整合了国内众多云平台、短信发送、邮件发送平台，独创的“模板即模型”概念是wordpress所不具备的，只有资深的wordpress玩家才能体会里面的微妙关系。同时后续会添加微信文章同步，QQ公众平台，今日头条，一点资讯等新媒体的文章同步功能，更加国产和本地化。
 
-
-### 下载
-目前JPress托管在github和git.oschina.net上，网址分别是：
-
-* [https://github.com/JpressProjects/jpress](https://github.com/JpressProjects/jpress)
-* [http://git.oschina.net/fuhai/jpress](http://git.oschina.net/fuhai/jpress)
 
 可以通过以上网址查看JPress的更新情况。
 
