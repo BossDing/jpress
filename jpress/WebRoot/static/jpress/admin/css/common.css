@@ -535,7 +535,7 @@ label {
 }
 
 .main-sidebar, .left-side {
-	z-index: 8;
+	z-index: 8 !important;
 }
 
 .skin-blue .main-header .navbar {
