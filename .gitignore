@@ -1,1 +1,3 @@
 .DS_Store
+db.properties
+db_sample.properties
