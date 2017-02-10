@@ -76,6 +76,7 @@
 						<th>电子邮件</th>
 						<th>角色</th>
 						<th>文章数量</th>
+						<th>最后登录时间</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -102,6 +103,7 @@
 						<td>${bean.email!}</td>
 						<td>${bean.role!}</td>
 						<td>${bean.content_count!'0'}</td>
+						<td>${bean.logged!}</td>
 					</tr>
 					</#list> </#if>
 				</tbody>
