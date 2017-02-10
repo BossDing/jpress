@@ -15,9 +15,11 @@ JPress之家交流Q群：582035381
 
 #update
 <ul>
+<li>增加管理面板用户统计功能</li>
 <li>集成lucene，可以检索标题、正文等字段。</li>
 <li>fix mini logo遮挡</li>
 </ul>
 
 #Thx
 * [https://github.com/JpressProjects/jpress](https://github.com/JpressProjects/jpress)
+* [https://git.oschina.net/duzhime/DUZHI_BLOG](https://git.oschina.net/duzhime/DUZHI_BLOG)
