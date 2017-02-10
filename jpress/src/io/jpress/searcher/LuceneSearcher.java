@@ -53,9 +53,9 @@ import com.jfinal.plugin.activerecord.Page;
 import io.jpress.Consts;
 import io.jpress.model.Content;
 import io.jpress.model.query.ContentQuery;
-import io.jpress.plugin.search.Current;
 import io.jpress.plugin.search.ISearcher;
 import io.jpress.plugin.search.SearcherBean;
+import io.jpress.plugin.search.annotation.Current;
 
 @Current
 public class LuceneSearcher implements ISearcher {

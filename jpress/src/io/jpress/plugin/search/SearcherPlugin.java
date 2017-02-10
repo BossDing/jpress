@@ -20,6 +20,7 @@ import java.util.List;
 import com.jfinal.log.Log;
 import com.jfinal.plugin.IPlugin;
 
+import io.jpress.plugin.search.annotation.Current;
 import io.jpress.utils.ClassUtils;
 
 public class SearcherPlugin implements IPlugin {
