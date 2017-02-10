@@ -5,7 +5,7 @@
 <li>是方便主题制作的时候能够热部署。</li>
 <li>定制更多新功能</li>
 </ul>
-
+![预览截图](http://ww1.sinaimg.cn/large/006tKfTcjw1fclrv43g6mj311i0lkadh.jpg)
 <br>
 删除了源码中的war包，需要下载安装包的，可以去JPress之家下载最新的安装包。
 #Site
@@ -15,9 +15,11 @@ JPress之家交流Q群：582035381
 
 #update
 <ul>
+<li>增加管理面板用户统计功能</li>
 <li>集成lucene，可以检索标题、正文等字段。</li>
 <li>fix mini logo遮挡</li>
 </ul>
 
 #Thx
 * [https://github.com/JpressProjects/jpress](https://github.com/JpressProjects/jpress)
+* [https://git.oschina.net/duzhime/DUZHI_BLOG](https://git.oschina.net/duzhime/DUZHI_BLOG)
