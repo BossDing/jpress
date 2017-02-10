@@ -5,7 +5,7 @@
 <li>是方便主题制作的时候能够热部署。</li>
 <li>定制更多新功能</li>
 </ul>
-
+![预览截图](http://ww1.sinaimg.cn/large/006tKfTcjw1fclrv43g6mj311i0lkadh.jpg)
 <br>
 删除了源码中的war包，需要下载安装包的，可以去JPress之家下载最新的安装包。
 #Site
