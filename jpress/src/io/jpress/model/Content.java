@@ -45,7 +45,8 @@ import io.jpress.utils.JsoupUtils;
 import io.jpress.utils.StringUtils;
 
 @Table(tableName = "content", primaryKey = "id")
-public class Content extends BaseContent<Content> implements ISortModel<Content> {
+public class Content extends BaseContent<Content> implements
+		ISortModel<Content> {
 
 	public static String STATUS_DELETE = "delete";
 	public static String STATUS_DRAFT = "draft";
@@ -195,12 +196,14 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 	}
 
 	public String getNicknameOrUsername() {
-		return StringUtils.isNotBlank(getNickame()) ? getNickame() : getUsername();
+		return StringUtils.isNotBlank(getNickame()) ? getNickame()
+				: getUsername();
 	}
 
 	public List<Metadata> getMetadatas() {
 		if (metadatas == null) {
-			metadatas = MetaDataQuery.me().findListByTypeAndId(METADATA_TYPE, getId());
+			metadatas = MetaDataQuery.me().findListByTypeAndId(METADATA_TYPE,
+					getId());
 		}
 		return metadatas;
 	}
@@ -263,8 +266,8 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 		StringBuilder retBuilder = new StringBuilder();
 		for (Taxonomy taxonomy : taxonomies) {
 			if (type.equals(taxonomy.getType())) {
-				String string = String.format("<a href=\"%s\" %s >%s</a>", taxonomy.getUrl(), attrs,
-						taxonomy.getTitle());
+				String string = String.format("<a href=\"%s\" %s >%s</a>",
+						taxonomy.getUrl(), attrs, taxonomy.getTitle());
 				retBuilder.append(string).append(",");
 			}
 		}
@@ -280,13 +283,15 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 			return taxonomys;
 		}
 
-		List<Mapping> mappingList = MappingQuery.me().findListByContentId(getId());
+		List<Mapping> mappingList = MappingQuery.me().findListByContentId(
+				getId());
 		if (mappingList == null || mappingList.isEmpty()) {
 			return null;
 		}
 		taxonomys = new ArrayList<Taxonomy>();
 		for (Mapping mapping : mappingList) {
-			Taxonomy taxonomy = TaxonomyQuery.me().findById(mapping.getTaxonomyId());
+			Taxonomy taxonomy = TaxonomyQuery.me().findById(
+					mapping.getTaxonomyId());
 			if (taxonomy != null) {
 				taxonomys.add(taxonomy);
 			}
@@ -321,7 +326,8 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 		if (parent != null)
 			return parent;
 
-		if (getParentId() == null || getParentId().compareTo(BigInteger.ZERO) == 0) {
+		if (getParentId() == null
+				|| getParentId().compareTo(BigInteger.ZERO) == 0) {
 			return null;
 		} else {
 			parent = ContentQuery.me().findById(getParentId());
@@ -385,15 +391,16 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 			return null;
 		}
 
-		Thumbnail thumbnail = TemplateManager.me().currentTemplateThumbnail(name);
+		Thumbnail thumbnail = TemplateManager.me().currentTemplateThumbnail(
+				name);
 		if (thumbnail == null) {
 			return imageSrc;
 		}
 
 		String nameOfImageSrc = thumbnail.getUrl(imageSrc);
 
-		if (new File(PathKit.getWebRootPath(), nameOfImageSrc.substring(JFinal.me().getContextPath().length()))
-				.exists()) {
+		if (new File(PathKit.getWebRootPath(), nameOfImageSrc.substring(JFinal
+				.me().getContextPath().length())).exists()) {
 			return nameOfImageSrc;
 		}
 
@@ -456,11 +463,22 @@ public class Content extends BaseContent<Content> implements ISortModel<Content>
 			if (StringUtils.isNumeric(slug)) {
 				slug = "c" + slug; // slug不能为全是数字,随便添加一个字母，c代表content好了
 			} else {
-				slug = slug.replaceAll("(\\s+)|(\\.+)|(。+)|(…+)|[\\$,，？\\-?、；;:!]", "_");
+				slug = slug.replaceAll(
+						"(\\s+)|(\\.+)|(。+)|(…+)|[\\$,，？\\-?、；;:!]", "_");
 				slug = slug.replaceAll("(?!_)\\pP|\\pS", "");
 			}
 		}
 		super.setSlug(slug);
+	}
+
+	public String getTextWithoutImg() {
+		String text = getText();
+		String regex = "(<img.*)src=";
+		text = text.replaceAll(regex, "$1 class=\"box-hide\" src=\""
+				+ TemplateManager.me().currentTemplatePath()
+				+ "/images/image-pending.gif\" " + "alt=\"" + getTitle()
+				+ "\" title=\"" + getTitle() + "\" alt=\"img\" data-original=");
+		return text;
 	}
 
 }

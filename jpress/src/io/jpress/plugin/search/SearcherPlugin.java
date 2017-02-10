@@ -46,12 +46,18 @@ public class SearcherPlugin implements IPlugin {
 			log.error("cant scan ISearcher implement class in class path.");
 			return true;
 		}
-
-		if (list.size() > 1) {
-			log.warn("there are too many searcher");
+		
+		if (list.size() == 1) {
+			initSearcher(list.get(0));
 		}
-
-		initSearcher(list.get(0));
+		else {
+			for (Class<ISearcher> iSearcherClass : list) {
+				if (iSearcherClass.isAnnotationPresent(Current.class)) {
+					initSearcher(iSearcherClass);
+					break;
+				}
+			}
+		}
 
 		return true;
 	}

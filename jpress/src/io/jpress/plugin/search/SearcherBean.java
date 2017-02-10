@@ -15,6 +15,10 @@
  */
 package io.jpress.plugin.search;
 
+import io.jpress.model.Content;
+import io.jpress.model.query.ContentQuery;
+
+import java.math.BigInteger;
 import java.util.Date;
 
 public class SearcherBean {
@@ -25,12 +29,24 @@ public class SearcherBean {
 	private String content;
 	private String url;
 	private Date created;
-
+	private Content post;
 	private Object data; // 保存其他信息，不是用来检索的
 
 	public SearcherBean() {
 	}
+	
+	public Content getPost() {
+		if(post==null){
+			Content content = ContentQuery.me().findById(new BigInteger(getSid()));
+			post=content;
+		}
+		return post;
+	}
 
+	public void setPost(Content post) {
+		this.post = post;
+	}
+	
 	public SearcherBean(String sid, String title, String description, String content, String url, Date created,
 			Object data) {
 		this.sid = sid;
