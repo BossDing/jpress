@@ -109,7 +109,7 @@ function reply(id){
 							<a class="chart-item" href="#">
 								<p class="chart-item-title">${module.title!}垃圾箱</p>
 								<h3 class="chart-item-amount">${module.findDeleteContentCount()!}</h3>
-								<span class="chart-item-bottom chart-bottom-c3"></span>
+								<span class="chart-item-bottom chart-bottom-c5"></span>
 							</a>
 						</div>
 					</div>
@@ -147,7 +147,44 @@ function reply(id){
 		<!-- /.col -->
 
 		<div class="col-md-6">
-
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">用户统计</h3>
+					<div class="box-tools pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button>
+					</div>
+				</div>
+				<div class="box-body">
+					<div class="row chart-row">
+						<div class="col-xs-4">
+							<a class="chart-item" href="#">
+								<p class="chart-item-title">今日活跃用户数</p>
+								<h3 class="chart-item-amount">${todayloggeduser!'0'}</h3>
+								<span class="chart-item-bottom chart-bottom-c3"></span>
+							</a>
+						</div>
+						
+						<div class="col-xs-4">
+							<a class="chart-item" href="#">
+								<p class="chart-item-title">网站总用户数</p>
+								<h3 class="chart-item-amount">${totaluser!'0'}</h3>
+								<span class="chart-item-bottom chart-bottom-c3"></span>
+							</a>
+						</div>
+						<div class="col-xs-4">
+							<a class="chart-item" href="#">
+								<p class="chart-item-title">冻结用户数</p>
+								<h3 class="chart-item-amount">${frozenuser!'0'}</h3>
+								<span class="chart-item-bottom chart-bottom-c5"></span>
+							</a>
+						</div>
+						</div>
+				</div>
+				<!-- /.box-body-->
+			</div>
+			
 			<!-- Donut chart -->
 			<div class="box box-primary">
 				<div class="box-header with-border">

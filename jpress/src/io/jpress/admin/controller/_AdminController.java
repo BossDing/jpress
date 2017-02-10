@@ -62,7 +62,11 @@ public class _AdminController extends JBaseController {
 					null, null, null, null, null, null, null);
 			setAttr("contents", contents);
 		}
-
+		
+		setAttr("totaluser",UserQuery.me().findCount());
+		setAttr("todayloggeduser",UserQuery.me().findTodayTotalUserCount());
+		setAttr("frozenuser",UserQuery.me().findStatusCount("frozen"));
+		
 		Page<Comment> commentPage = CommentQuery.me().paginateWithContentNotInDelete(1, 10, null, null, null, null);
 		if (commentPage != null) {
 			setAttr("comments", commentPage.getList());

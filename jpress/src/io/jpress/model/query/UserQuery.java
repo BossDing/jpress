@@ -19,6 +19,8 @@ import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.List;
 
+import io.jpress.utils.DateUtils;
+
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.ehcache.IDataLoader;
 
@@ -35,14 +37,18 @@ public class UserQuery extends JBaseQuery {
 		return QUERY;
 	}
 
-	public List<User> findList(int page, int pagesize, String gender, String role, String status, String orderBy) {
+	public List<User> findList(int page, int pagesize, String gender,
+			String role, String status, String orderBy) {
 		StringBuilder sqlBuilder = new StringBuilder("select * from user u ");
 		LinkedList<Object> params = new LinkedList<Object>();
 
 		boolean needWhere = true;
-		needWhere = appendIfNotEmpty(sqlBuilder, "u.gender", gender, params, needWhere);
-		needWhere = appendIfNotEmpty(sqlBuilder, "u.role", role, params, needWhere);
-		needWhere = appendIfNotEmpty(sqlBuilder, "u.status", status, params, needWhere);
+		needWhere = appendIfNotEmpty(sqlBuilder, "u.gender", gender, params,
+				needWhere);
+		needWhere = appendIfNotEmpty(sqlBuilder, "u.role", role, params,
+				needWhere);
+		needWhere = appendIfNotEmpty(sqlBuilder, "u.status", status, params,
+				needWhere);
 
 		buildOrderBy(orderBy, sqlBuilder);
 
@@ -59,8 +65,9 @@ public class UserQuery extends JBaseQuery {
 	}
 
 	public User findFirstFromMetadata(String key, Object value) {
-//		return DAO.findFirstFromMetadata(key, value);
-		Metadata md = MetaDataQuery.me().findFirstByTypeAndValue(User.METADATA_TYPE, key, value);
+		// return DAO.findFirstFromMetadata(key, value);
+		Metadata md = MetaDataQuery.me().findFirstByTypeAndValue(
+				User.METADATA_TYPE, key, value);
 		if (md != null) {
 			BigInteger id = md.getObjectId();
 			return findById(id);
@@ -68,11 +75,12 @@ public class UserQuery extends JBaseQuery {
 		return null;
 	}
 
-	public Page<User> paginate(int pageNumber, int pageSize , String orderby) {
+	public Page<User> paginate(int pageNumber, int pageSize, String orderby) {
 		String select = "select * ";
 		StringBuilder fromBuilder = new StringBuilder(" from user u ");
 		buildOrderBy(orderby, fromBuilder);
-		return DAO.paginate(pageNumber, pageSize, select, fromBuilder.toString());
+		return DAO.paginate(pageNumber, pageSize, select,
+				fromBuilder.toString());
 	}
 
 	public long findCount() {
@@ -124,7 +132,9 @@ public class UserQuery extends JBaseQuery {
 		List<TplModule> modules = TemplateManager.me().currentTemplateModules();
 		if (modules != null && !modules.isEmpty()) {
 			for (TplModule m : modules) {
-				long moduleCount = ContentQuery.me().findCountInNormalByModuleAndUserId(m.getName(), user.getId());
+				long moduleCount = ContentQuery.me()
+						.findCountInNormalByModuleAndUserId(m.getName(),
+								user.getId());
 				count += moduleCount;
 			}
 		}
@@ -173,4 +183,11 @@ public class UserQuery extends JBaseQuery {
 		}
 	}
 
+	public long findTodayTotalUserCount() {
+		return DAO.doFindCount("logged > ?", DateUtils.getZeroTime());
+	}
+
+	public long findStatusCount(String status) {
+		return DAO.doFindCount("status = ? ", status);
+	}
 }

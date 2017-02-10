@@ -19,6 +19,7 @@ import java.security.InvalidParameterException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class DateUtils {
 
@@ -38,6 +39,13 @@ public class DateUtils {
 			return null;
 
 		return sdf.format(date);
+	}
+	
+	public static String getZeroTime() {
+		long current = System.currentTimeMillis();
+		long zero = current / (1000 * 3600 * 24) * (1000 * 3600 * 24)
+				- TimeZone.getDefault().getRawOffset();
+		return format(new Date(zero));
 	}
 
 	/**
