@@ -15,9 +15,17 @@ JPress之家交流Q群：582035381
 
 #update
 <ul>
-<li>增加管理面板用户统计功能</li>
-<li>集成lucene，可以检索标题、正文等字段。</li>
+<li>add 管理面板用户统计功能</li>
+<li>add 全文检索lucene，可以检索标题、正文等字段。</li>
 <li>fix mini logo遮挡</li>
+</ul>
+
+#Todo
+<ul>
+<li>The3主题模版</li>
+<li>用户权限模块</li>
+<li>主题预览功能</li>
+<li>其它...(欢迎加入Q群提交新需求)</li>
 </ul>
 
 #Thx
