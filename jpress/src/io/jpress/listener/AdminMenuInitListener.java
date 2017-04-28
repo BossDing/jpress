@@ -163,6 +163,7 @@ public class AdminMenuInitListener implements MessageListener {
 		MenuGroup group = new MenuGroup("tools", "fa fa-wrench", "工具");
 
 		{
+			group.addMenuItem(new MenuItem("druid", "/admin/tools/druid", "数据库监控"));
 			group.addMenuItem(new MenuItem("import", "/admin/tools/_import", "导入"));
 			group.addMenuItem(new MenuItem("export", "/admin/tools/export", "导出"));
 			group.addMenuItem(new MenuItem("sync", "/admin/tools/sync", "同步"));
